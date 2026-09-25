@@ -111,10 +111,11 @@ export default function KalkulatorDepositoPage() {
             title: 'Contoh: Deposito Rp 100 juta, bunga 5%, tenor 12 bulan',
             content: (
               <div>
-                <p>Bunga kotor = Rp 100.000.000 × 5% = <strong style={{ color: 'var(--text-accent)' }}>Rp 5.000.000</strong></p>
-                <p>Pajak = Rp 5.000.000 × 20% = Rp 1.000.000</p>
-                <p>Bunga bersih = Rp 4.000.000</p>
-                <p>Saldo akhir = Rp 104.000.000</p>
+                <p>Bunga per bulan = Rp 100.000.000 × 5% ÷ 365 × 30 = Rp 410.959</p>
+                <p>Bunga kotor 12 bulan = <strong style={{ color: 'var(--text-accent)' }}>Rp 4.931.507</strong></p>
+                <p>Pajak = Rp 4.931.507 × 20% = Rp 986.301</p>
+                <p>Bunga bersih = Rp 3.945.205</p>
+                <p>Saldo akhir = Rp 103.945.205</p>
               </div>
             ),
           },

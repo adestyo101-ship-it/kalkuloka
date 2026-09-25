@@ -15,12 +15,12 @@ export default function HomePage() {
       {/* HERO */}
       <section className="hero">
         <div className="container">
-          <p className="hero-tagline">🇮🇩 Platform Kalkulator Indonesia</p>
+          <p className="hero-tagline">PLATFORM KALKULATOR LENGKAP DAN MUDAH DIPAHAMI</p>
           <h1 className="hero-title">
             Hitung Apa <span className="accent">Hari Ini?</span>
           </h1>
           <p className="hero-subtitle">
-            Kalkulator keuangan, bisnis, dan sehari-hari — gratis, cepat, dan mudah dipahami.
+            Temukan yang kamu butuhkan, pelajari cara menghitungnya, dan pahami hasilnya.
           </p>
 
           {/* Search Bar */}
@@ -55,8 +55,8 @@ export default function HomePage() {
             }}
           >
             {[
-              { num: '10', label: 'Tools Gratis' },
-              { num: '6', label: 'Kategori' },
+              { num: '14', label: 'Tools Gratis' },
+              { num: '7', label: 'Kategori' },
               { num: '100%', label: 'Browser-Based' },
             ].map((stat) => (
               <div key={stat.label} style={{ textAlign: 'center' }}>

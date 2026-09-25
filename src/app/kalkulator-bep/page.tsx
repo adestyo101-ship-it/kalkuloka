@@ -43,10 +43,10 @@ export default function BEPPage() {
   return (
     <div className="container-narrow" style={{ padding: '2rem 1.25rem 4rem' }}>
       <div style={{ marginBottom: '2rem' }}>
-        <span className="badge badge-teal" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>⚖️ Bisnis & UMKM</span>
+        <span className="badge badge-teal" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>⚖️ Bisnis</span>
         <h1 style={{ marginBottom: '0.5rem' }}>Kalkulator BEP</h1>
         <p style={{ color: 'var(--text-secondary)' }}>
-          Hitung Break Even Point (titik impas) bisnis Anda — berapa unit yang harus terjual agar tidak rugi.
+          Hitung Break Even Point (titik impas) bisnis Anda. Berapa unit yang harus terjual agar tidak rugi.
         </p>
       </div>
 
@@ -147,7 +147,7 @@ export default function BEPPage() {
         items={[
           {
             title: 'Apa itu BEP?',
-            content: <p>BEP (Break Even Point) atau titik impas adalah kondisi dimana total pendapatan sama dengan total biaya — tidak untung, tidak rugi. Di atas BEP = untung. Di bawah BEP = rugi.</p>,
+            content: <p>BEP (Break Even Point) atau titik impas adalah kondisi dimana total pendapatan sama dengan total biaya. Tidak untung, tidak rugi. Di atas BEP = untung. Di bawah BEP = rugi.</p>,
           },
           {
             title: 'Formula BEP',

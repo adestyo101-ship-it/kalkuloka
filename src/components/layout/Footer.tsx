@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { TOOLS, CATEGORIES } from '@/data/tools';
 
 export default function Footer() {
@@ -31,12 +32,12 @@ export default function Footer() {
                 marginBottom: '0.75rem',
               }}
             >
-              KALKULO<span style={{ color: 'var(--color-teal-500)' }}>KA</span>
+              <Image src="/logo.webp" alt="Kalkuloka" width={1535} height={229} style={{ height: 30, width: 'auto' }} />
             </Link>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
               Hitung Mudah, Pahami Hasilnya.
               <br />
-              Platform micro-tools kalkulator untuk kebutuhan keuangan, bisnis, dan sehari-hari.
+              Platform kalkulator lengkap untuk segala kebutuhan. Dilengkapi rumus, langkah perhitungan, serta penjelasan hasil agar setiap jawaban lebih mudah dipahami.
             </p>
           </div>
 
@@ -183,7 +184,7 @@ export default function Footer() {
           }}
         >
           <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-            © {currentYear} Kalkuloka. Dibuat dengan ❤️ untuk Indonesia.
+            © {currentYear} Kalkuloka. Dukung kami agar bisa berkembang.
           </p>
           <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
             ⚠️ Hasil kalkulasi bersifat estimasi. Konsultasikan dengan profesional untuk keputusan finansial penting.

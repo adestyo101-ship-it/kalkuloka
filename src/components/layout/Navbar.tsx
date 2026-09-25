@@ -1,13 +1,18 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
   { href: '/keuangan', label: 'Keuangan' },
-  { href: '/bisnis', label: 'Bisnis & UMKM' },
+  { href: '/bisnis', label: 'Bisnis' },
   { href: '/pekerjaan', label: 'Pekerjaan' },
+  { href: '/properti', label: 'Properti' },
+  { href: '/kendaraan', label: 'Kendaraan' },
+  { href: '/umum', label: 'Tools Umum' },
+  { href: '/matematika', label: 'Matematika' },
 ];
 
 export default function Navbar() {
@@ -20,7 +25,7 @@ export default function Navbar() {
         <div className="navbar-inner">
           {/* Logo */}
           <Link href="/" className="navbar-logo" onClick={() => setMobileOpen(false)}>
-            KALKULO<span>KA</span>
+            <Image src="/logo.webp" alt="Kalkuloka" width={1535} height={229} priority style={{ height: 30, width: 'auto' }} />
           </Link>
 
           {/* Desktop Nav Links */}

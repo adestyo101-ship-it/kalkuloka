@@ -55,7 +55,7 @@ export default function KalkulatorHPPPage() {
   return (
     <div className="container-narrow" style={{ padding: '2rem 1.25rem 4rem' }}>
       <div style={{ marginBottom: '2rem' }}>
-        <span className="badge badge-teal" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>🧾 Bisnis & UMKM</span>
+        <span className="badge badge-teal" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>🧾 Bisnis</span>
         <h1 style={{ marginBottom: '0.5rem' }}>Kalkulator HPP</h1>
         <p style={{ color: 'var(--text-secondary)' }}>
           Hitung Harga Pokok Produksi (HPP) secara detail. Masukkan setiap komponen biaya produksi Anda.

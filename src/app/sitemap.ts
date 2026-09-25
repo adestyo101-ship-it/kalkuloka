@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1.0,
     },
-    ...CATEGORIES.filter(c => ['keuangan', 'bisnis', 'pekerjaan'].includes(c.id)).map((cat) => ({
+    ...CATEGORIES.map((cat) => ({
       url: `${BASE_URL}/${cat.id}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,

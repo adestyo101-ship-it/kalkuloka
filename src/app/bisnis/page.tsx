@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import { generateMeta } from '@/lib/metadata';
 
 export const metadata: Metadata = generateMeta({
-  title: 'Kalkulator Bisnis & UMKM',
+  title: 'Kalkulator Bisnis',
   description: 'Tools kalkulator untuk bisnis dan UMKM: HPP, harga jual, margin, markup, BEP. Bantu usaha Anda lebih menguntungkan.',
   slug: 'bisnis',
   keywords: ['bisnis', 'umkm', 'hpp', 'harga jual', 'margin', 'bep'],
@@ -20,7 +20,7 @@ export default function BisnisPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <div style={{ width: 56, height: 56, borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', background: 'rgba(0,194,168,0.12)', border: '1px solid rgba(0,194,168,0.2)' }}>🏪</div>
           <div>
-            <h1 style={{ marginBottom: '0.25rem' }}>Bisnis & UMKM</h1>
+            <h1 style={{ marginBottom: '0.25rem' }}>Bisnis</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>HPP, harga jual, margin, markup, dan BEP untuk usaha Anda</p>
           </div>
         </div>

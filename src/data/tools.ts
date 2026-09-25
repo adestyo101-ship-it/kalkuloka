@@ -1,5 +1,5 @@
 // Master list semua tools Kalkuloka
-export type ToolCategory = 'keuangan' | 'bisnis' | 'pekerjaan' | 'properti' | 'kendaraan' | 'umum';
+export type ToolCategory = 'keuangan' | 'bisnis' | 'pekerjaan' | 'properti' | 'kendaraan' | 'umum' | 'matematika';
 
 export interface Tool {
   slug: string;
@@ -26,6 +26,30 @@ export const TOOLS: Tool[] = [
     tags: ['cicilan', 'kredit', 'pinjaman', 'angsuran', 'bunga', 'kpr', 'ktb'],
     isPopular: true,
     relatedTools: ['kalkulator-deposito', 'kalkulator-bunga-majemuk'],
+  },
+  {
+    slug: 'kalkulator-kpr-bunga-berjenjang',
+    name: 'Kalkulator KPR Bunga Berjenjang',
+    shortName: 'KPR Berjenjang',
+    description: 'Hitung cicilan KPR dengan bunga yang berubah di tahun tertentu. Cicilan dihitung ulang setiap bunga naik.',
+    category: 'properti',
+    icon: '🏠',
+    tags: ['kpr', 'rumah', 'bunga berjenjang', 'bunga fixed', 'bunga floating', 'cicilan', 'properti', 'amortisasi'],
+    isPopular: false,
+    isNew: true,
+    relatedTools: ['kalkulator-cicilan', 'kalkulator-plafond-pinjaman'],
+  },
+  {
+    slug: 'kalkulator-cicilan-kendaraan',
+    name: 'Kalkulator Cicilan Kendaraan',
+    shortName: 'Cicilan Kendaraan',
+    description: 'Hitung cicilan bulanan kredit motor atau mobil dari harga, DP, bunga, tenor, dan biaya tambahan.',
+    category: 'kendaraan',
+    icon: '🚗',
+    tags: ['cicilan kendaraan', 'kredit mobil', 'kredit motor', 'dp', 'leasing', 'bunga flat', 'angsuran'],
+    isPopular: false,
+    isNew: true,
+    relatedTools: ['kalkulator-cicilan', 'kalkulator-plafond-pinjaman'],
   },
   {
     slug: 'kalkulator-deposito',
@@ -169,7 +193,7 @@ export const CATEGORIES = [
   },
   {
     id: 'bisnis' as ToolCategory,
-    name: 'Bisnis & UMKM',
+    name: 'Bisnis',
     icon: '🏪',
     description: 'HPP, harga jual, margin, dan BEP',
     color: 'from-emerald-500 to-teal-500',
@@ -216,6 +240,16 @@ export const CATEGORIES = [
     bgColor: 'bg-slate-500/10',
     textColor: 'text-slate-400',
     borderColor: 'border-slate-500/20',
+  },
+  {
+    id: 'matematika' as ToolCategory,
+    name: 'Matematika',
+    icon: '📐',
+    description: 'Rumus, geometri, statistik, dan hitungan matematika',
+    color: 'from-indigo-500 to-blue-500',
+    bgColor: 'bg-indigo-500/10',
+    textColor: 'text-indigo-400',
+    borderColor: 'border-indigo-500/20',
   },
 ];
 

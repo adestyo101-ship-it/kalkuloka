@@ -286,7 +286,7 @@ export default function KalkulatorCicilanPage() {
             content: (
               <p>
                 Kalkulator ini menggunakan formula standar. Untuk KPR, bank biasanya menggunakan metode anuitas.
-                Namun hasil ini bersifat estimasi — biaya administrasi, asuransi, dan biaya lain belum termasuk.
+                Namun hasil ini bersifat estimasi. Biaya administrasi, asuransi, dan biaya lain belum termasuk.
                 Selalu konfirmasi dengan bank atau leasing Anda.
               </p>
             ),

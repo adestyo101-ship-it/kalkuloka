@@ -29,7 +29,9 @@ export function hitungDeposito(
     };
   }
 
-  const bungaKotor = round(dana * (bungaTahunan / 100) * (tenorBulan / 12));
+  // Bunga per bulan = dana x bunga per tahun / 365 x 30 hari, dikali jumlah bulan tenor
+  const bungaPerBulan = (dana * (bungaTahunan / 100)) / 365 * 30;
+  const bungaKotor = round(bungaPerBulan * tenorBulan);
   const estimasiPajak = round(bungaKotor * TARIF_PAJAK);
   const bungaBersih = round(bungaKotor - estimasiPajak);
   const saldoAkhir = round(dana + bungaBersih);
