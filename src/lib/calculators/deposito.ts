@@ -4,6 +4,8 @@ import { round } from '../formatters';
 const TARIF_PAJAK = 0.2;
 const SUMBER_REGULASI = 'PP No. 131 Tahun 2000. Terakhir diverifikasi: 2024.';
 
+export type PembagiHari = 360 | 365;
+
 export interface HasilDeposito {
   bungaKotor: number;
   estimasiPajak: number;
@@ -16,7 +18,8 @@ export interface HasilDeposito {
 export function hitungDeposito(
   dana: number,
   bungaTahunan: number,
-  tenorBulan: number
+  tenorBulan: number,
+  pembagiHari: PembagiHari = 365
 ): HasilDeposito {
   if (dana <= 0 || bungaTahunan <= 0 || tenorBulan <= 0) {
     return {
@@ -29,8 +32,8 @@ export function hitungDeposito(
     };
   }
 
-  // Bunga per bulan = dana x bunga per tahun / 365 x 30 hari, dikali jumlah bulan tenor
-  const bungaPerBulan = (dana * (bungaTahunan / 100)) / 365 * 30;
+  // Bunga per bulan = dana x bunga per tahun / pembagi hari (360 atau 365) x 30 hari, dikali jumlah bulan tenor
+  const bungaPerBulan = (dana * (bungaTahunan / 100)) / pembagiHari * 30;
   const bungaKotor = round(bungaPerBulan * tenorBulan);
   const estimasiPajak = round(bungaKotor * TARIF_PAJAK);
   const bungaBersih = round(bungaKotor - estimasiPajak);

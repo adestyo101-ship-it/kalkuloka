@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { hitungDeposito } from '@/lib/calculators/deposito';
+import { hitungDeposito, PembagiHari } from '@/lib/calculators/deposito';
 import { formatRupiah, formatPercent } from '@/lib/formatters';
 import InputCurrency from '@/components/ui/InputCurrency';
 import InputNumber from '@/components/ui/InputNumber';
@@ -13,21 +13,23 @@ export default function KalkulatorDepositoPage() {
   const [dana, setDana] = useState(0);
   const [bunga, setBunga] = useState(0);
   const [tenor, setTenor] = useState(0);
+  const [pembagi, setPembagi] = useState<PembagiHari>(365);
   const [hasil, setHasil] = useState<ReturnType<typeof hitungDeposito> | null>(null);
 
   function handleHitung() {
-    setHasil(hitungDeposito(dana, bunga, tenor));
+    setHasil(hitungDeposito(dana, bunga, tenor, pembagi));
   }
 
   function handleReset() {
     setDana(0);
     setBunga(0);
     setTenor(0);
+    setPembagi(365);
     setHasil(null);
   }
 
   const shareText = hasil
-    ? `Dana: ${formatRupiah(dana)}, Bunga: ${bunga}%/thn, Tenor: ${tenor} bulan\nBunga Kotor: ${formatRupiah(hasil.bungaKotor)}\nPajak (20%): ${formatRupiah(hasil.estimasiPajak)}\nBunga Bersih: ${formatRupiah(hasil.bungaBersih)}\nSaldo Akhir: ${formatRupiah(hasil.saldoAkhir)}`
+    ? `Dana: ${formatRupiah(dana)}, Bunga: ${bunga}%/thn, Tenor: ${tenor} bulan, Pembagi: ${pembagi} hari\nBunga Kotor: ${formatRupiah(hasil.bungaKotor)}\nPajak (20%): ${formatRupiah(hasil.estimasiPajak)}\nBunga Bersih: ${formatRupiah(hasil.bungaBersih)}\nSaldo Akhir: ${formatRupiah(hasil.saldoAkhir)}`
     : '';
 
   return (
@@ -45,6 +47,30 @@ export default function KalkulatorDepositoPage() {
           <InputCurrency id="dana-deposito" label="Dana Deposito" value={dana} onChange={setDana} placeholder="100.000.000" />
           <InputNumber id="bunga-deposito" label="Bunga per Tahun" value={bunga} onChange={setBunga} suffix="% / thn" placeholder="5" min={0} max={100} step={0.1} decimals={2} />
           <InputNumber id="tenor-deposito" label="Tenor" value={tenor} onChange={setTenor} suffix="bulan" placeholder="12" min={1} max={120} />
+          <div className="input-group">
+            <label className="input-label">Pembagi Hari dalam Setahun</label>
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              {([365, 360] as PembagiHari[]).map((p) => (
+                <label
+                  key={p}
+                  style={{
+                    flex: 1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem',
+                    padding: '0.75rem 1rem',
+                    background: pembagi === p ? 'rgba(0, 194, 168, 0.1)' : 'var(--bg-input)',
+                    border: `1px solid ${pembagi === p ? 'var(--border-accent)' : 'var(--border-default)'}`,
+                    borderRadius: 'var(--radius-md)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <input type="radio" name="pembagi-deposito" checked={pembagi === p} onChange={() => setPembagi(p)} style={{ accentColor: 'var(--color-teal-500)' }} />
+                  <span style={{ fontWeight: 600, fontSize: '0.9rem' }}>{p} hari</span>
+                </label>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem' }}>
@@ -111,7 +137,7 @@ export default function KalkulatorDepositoPage() {
             title: 'Contoh: Deposito Rp 100 juta, bunga 5%, tenor 12 bulan',
             content: (
               <div>
-                <p>Bunga per bulan = Rp 100.000.000 × 5% ÷ 365 × 30 = Rp 410.959</p>
+                <p>Bunga per bulan = Rp 100.000.000 × 5% ÷ 365 × 30 (bila pembagi 360: Rp 416.667) = Rp 410.959</p>
                 <p>Bunga kotor 12 bulan = <strong style={{ color: 'var(--text-accent)' }}>Rp 4.931.507</strong></p>
                 <p>Pajak = Rp 4.931.507 × 20% = Rp 986.301</p>
                 <p>Bunga bersih = Rp 3.945.205</p>
