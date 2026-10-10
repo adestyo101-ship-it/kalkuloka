@@ -7,6 +7,7 @@ const SUMBER_REGULASI = 'PP No. 131 Tahun 2000. Terakhir diverifikasi: 2024.';
 export type PembagiHari = 360 | 365;
 
 export interface HasilDeposito {
+  bungaPerBulan: number;
   bungaKotor: number;
   estimasiPajak: number;
   bungaBersih: number;
@@ -23,6 +24,7 @@ export function hitungDeposito(
 ): HasilDeposito {
   if (dana <= 0 || bungaTahunan <= 0 || tenorBulan <= 0) {
     return {
+      bungaPerBulan: 0,
       bungaKotor: 0,
       estimasiPajak: 0,
       bungaBersih: 0,
@@ -40,6 +42,7 @@ export function hitungDeposito(
   const saldoAkhir = round(dana + bungaBersih);
 
   return {
+    bungaPerBulan: round(bungaPerBulan),
     bungaKotor,
     estimasiPajak,
     bungaBersih,
