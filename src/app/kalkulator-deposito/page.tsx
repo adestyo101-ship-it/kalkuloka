@@ -103,8 +103,8 @@ export default function KalkulatorDepositoPage() {
                 <div className="value" style={{ color: 'var(--color-teal-400)' }}>{formatRupiah(hasil.bungaBersih)}</div>
               </div>
               <div className="result-item">
-                <div className="label">Bunga per Bulan (Kotor)</div>
-                <div className="value">{formatRupiah(hasil.bungaPerBulan)}</div>
+                <div className="label">Bunga per Bulan (Setelah Pajak)</div>
+                <div className="value">{formatRupiah(hasil.bungaPerBulanBersih)}</div>
               </div>
             </div>
 
