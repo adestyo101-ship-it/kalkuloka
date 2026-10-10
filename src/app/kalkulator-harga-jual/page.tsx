@@ -57,7 +57,7 @@ function HargaJualContent() {
                   key={m}
                   className={`btn ${metode === m ? 'btn-primary' : 'btn-secondary'}`}
                   onClick={() => setMetode(m)}
-                  style={{ flex: 1, textTransform: 'capitalize' }}
+                  style={{ flex: 1, minWidth: 0, padding: '0.75rem 0.5rem', textTransform: 'capitalize' }}
                   id={`btn-metode-${m}`}
                 >
                   {m === 'margin' ? 'Target Margin' : 'Target Markup'}

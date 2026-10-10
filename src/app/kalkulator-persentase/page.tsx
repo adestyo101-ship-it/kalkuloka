@@ -94,7 +94,7 @@ export default function PersentasePage() {
       </div>
 
       {/* Mode Tabs */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem', marginBottom: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '0.5rem', marginBottom: '1.5rem' }}>
         {MODES.map((m) => (
           <button
             key={m.value}
@@ -104,8 +104,10 @@ export default function PersentasePage() {
             style={{
               justifyContent: 'flex-start',
               textAlign: 'left',
-              padding: '0.75rem 1rem',
+              padding: '0.75rem 0.875rem',
               gap: '0.5rem',
+              whiteSpace: 'normal',
+              minWidth: 0,
             }}
           >
             <span style={{ fontSize: '1.2rem' }}>{m.emoji}</span>
