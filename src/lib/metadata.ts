@@ -22,7 +22,7 @@ export function generateMeta({
   const url = slug ? `${BASE_URL}/${slug}` : BASE_URL;
 
   return {
-    title: fullTitle,
+    title: { absolute: fullTitle },
     description,
     keywords: [
       'kalkulator',
