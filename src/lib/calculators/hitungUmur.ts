@@ -12,7 +12,29 @@ export interface HitungUmurResult {
     tanggal: Date;
     hariLagi: number;
   } | null;
-  milestones: { label: string; tanggal: Date; sudahLewat: boolean }[];
+  milestones: Milestone[];
+}
+
+export interface Milestone {
+  label: string;
+  tanggal: Date;
+  sudahLewat: boolean;
+  // Hanya untuk target usia yang belum tercapai (lihat TARGET_USIA)
+  sisa?: { bulanLagi: number; hariSisa: number };
+}
+
+// Tonggak usia yang menampilkan hitungan mundur dalam bulan
+export const TARGET_USIA = [55, 58, 60, 70, 75];
+
+// Bulan penuh dan sisa hari dari `dari` sampai `sampai` (sampai > dari)
+function bulanPenuh(dari: Date, sampai: Date): { bulan: number; hari: number } {
+  let bulan = (sampai.getFullYear() - dari.getFullYear()) * 12 + (sampai.getMonth() - dari.getMonth());
+  let hari = sampai.getDate() - dari.getDate();
+  if (hari < 0) {
+    bulan--;
+    hari += new Date(sampai.getFullYear(), sampai.getMonth(), 0).getDate();
+  }
+  return { bulan, hari };
 }
 
 export function hitungUmur(
@@ -76,18 +98,24 @@ export function hitungUmur(
     { label: '🎂 Ulang tahun ke-30', tahun: 30 },
     { label: '🎂 Ulang tahun ke-40', tahun: 40 },
     { label: '🎂 Ulang tahun ke-50', tahun: 50 },
+    { label: '🎂 Ulang tahun ke-55', tahun: 55 },
+    { label: '🎂 Ulang tahun ke-58', tahun: 58 },
     { label: '🎂 Ulang tahun ke-60', tahun: 60 },
+    { label: '🎂 Ulang tahun ke-70', tahun: 70 },
+    { label: '🎂 Ulang tahun ke-75', tahun: 75 },
   ].map((m) => {
     const tanggal = new Date(
       tanggalLahir.getFullYear() + m.tahun,
       tanggalLahir.getMonth(),
       tanggalLahir.getDate()
     );
-    return {
-      label: m.label,
-      tanggal,
-      sudahLewat: tanggal <= tanggalAcuan,
-    };
+    const sudahLewat = tanggal <= tanggalAcuan;
+    const hasil: Milestone = { label: m.label, tanggal, sudahLewat };
+    if (!sudahLewat && TARGET_USIA.includes(m.tahun)) {
+      const { bulan: bulanLagi, hari: hariSisa } = bulanPenuh(tanggalAcuan, tanggal);
+      hasil.sisa = { bulanLagi, hariSisa };
+    }
+    return hasil;
   });
 
   return {

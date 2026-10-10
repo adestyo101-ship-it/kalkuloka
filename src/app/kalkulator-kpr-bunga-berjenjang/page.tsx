@@ -84,9 +84,9 @@ export default function KalkulatorKprBungaBerjenjangPage() {
                   key={t.id}
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: '1fr 1fr auto',
+                    gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
                     gap: '0.75rem',
-                    alignItems: 'end',
+                    alignItems: 'start',
                     padding: '0.75rem',
                     background: 'var(--bg-input)',
                     border: '1px solid var(--border-default)',
@@ -120,12 +120,15 @@ export default function KalkulatorKprBungaBerjenjangPage() {
                     step={0.1}
                     decimals={2}
                   />
-                  {i > 0 ? (
-                    <button className="btn btn-secondary btn-sm" onClick={() => hapusTahap(t.id)} aria-label="Hapus periode" id={`kpr-hapus-${t.id}`}>
-                      ✕
+                  {i > 0 && (
+                    <button
+                      className="btn btn-secondary btn-sm"
+                      onClick={() => hapusTahap(t.id)}
+                      id={`kpr-hapus-${t.id}`}
+                      style={{ gridColumn: '1 / -1', justifySelf: 'end' }}
+                    >
+                      ✕ Hapus periode
                     </button>
-                  ) : (
-                    <span />
                   )}
                 </div>
               ))}

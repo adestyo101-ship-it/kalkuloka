@@ -10,7 +10,7 @@ import InfoSection from '@/components/calculator/InfoSection';
 import ShareResult from '@/components/calculator/ShareResult';
 import TrakteerCTA from '@/components/calculator/TrakteerCTA';
 
-const PERSEN_PRESETS = [25, 30, 35, 40];
+const PERSEN_PRESETS = [25, 30, 50, 70, 80, 90];
 
 const KATEGORI_COLOR: Record<string, string> = {
   aman: 'var(--color-teal-400)',

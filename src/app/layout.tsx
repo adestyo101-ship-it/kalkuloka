@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     siteName: 'Kalkuloka',
     locale: 'id_ID',
     type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1376, height: 768, alt: 'Kalkuloka — Hitung Mudah, Pahami Hasilnya' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og-image.jpg'],
   },
 };
 

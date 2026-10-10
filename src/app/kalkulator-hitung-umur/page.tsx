@@ -56,7 +56,7 @@ export default function HitungUmurPage() {
   }
 
   const shareText = hasil
-    ? `Umur saya: ${hasil.tahun} tahun, ${hasil.bulan} bulan, ${hasil.hari} hari\nTotal: ${hasil.totalHari.toLocaleString('id-ID')} hari`
+    ? `Umur saya: ${hasil.tahun} tahun, ${hasil.bulan} bulan, ${hasil.hari} hari\nTotal: ${hasil.totalHari.toLocaleString('id-ID')} hari${hasil.milestones.filter((m) => m.sisa).map((m) => `\n${m.label.replace(/^\S+\s/, '')}: ${m.sisa!.bulanLagi} bulan lagi`).join('')}`
     : hasilSelisih
     ? `Selisih: ${hasilSelisih.tahun} tahun, ${hasilSelisih.bulan} bulan, ${hasilSelisih.hari} hari (${hasilSelisih.totalHari.toLocaleString('id-ID')} hari)`
     : '';
@@ -267,7 +267,12 @@ export default function HitungUmurPage() {
                     <span style={{ color: m.sudahLewat ? 'var(--text-secondary)' : 'var(--text-muted)', flex: 1 }}>
                       {m.label}
                     </span>
-                    <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', textAlign: 'right' }}>
+                      {m.sisa && (
+                        <span style={{ color: 'var(--color-gold-400)', display: 'block', fontSize: '0.75rem', fontWeight: 500 }}>
+                          {m.sisa.bulanLagi.toLocaleString('id-ID')} bulan{m.sisa.hariSisa > 0 ? ` ${m.sisa.hariSisa} hari` : ''} lagi
+                        </span>
+                      )}
                       {formatTanggal(m.tanggal)}
                       {m.sudahLewat ? ' ✓' : ''}
                     </span>

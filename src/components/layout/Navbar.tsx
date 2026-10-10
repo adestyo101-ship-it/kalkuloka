@@ -25,7 +25,7 @@ export default function Navbar() {
         <div className="navbar-inner">
           {/* Logo */}
           <Link href="/" className="navbar-logo" onClick={() => setMobileOpen(false)}>
-            <Image src="/logo.webp" alt="Kalkuloka" width={1535} height={229} priority style={{ height: 30, width: 'auto' }} />
+            <Image src="/logo.webp" alt="Kalkuloka" width={1535} height={229} priority className="navbar-logo-img" style={{ height: 30, width: 'auto' }} />
           </Link>
 
           {/* Desktop Nav Links */}
@@ -43,7 +43,7 @@ export default function Navbar() {
 
           {/* Right Actions */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
-            <Link href="/" className="btn btn-ghost btn-sm" style={{ fontSize: '0.8rem' }}>
+            <Link href="/" className="btn btn-ghost btn-sm navbar-search" style={{ fontSize: '0.8rem' }}>
               🔍 Cari Tools
             </Link>
             <Link
@@ -51,7 +51,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               id="navbar-trakteer-btn"
-              className="btn btn-sm"
+              className="btn btn-sm navbar-support"
               style={{
                 background: 'linear-gradient(135deg, #FFAA00, #FF8C00)',
                 color: '#0A1729',
@@ -63,10 +63,9 @@ export default function Navbar() {
             </Link>
             {/* Mobile Hamburger */}
             <button
-              className="btn btn-icon btn-secondary"
+              className="btn btn-icon btn-secondary navbar-hamburger"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
-              style={{ display: 'none' }}
               id="mobile-menu-btn"
             >
               <span style={{ fontSize: '1.1rem' }}>{mobileOpen ? '✕' : '☰'}</span>

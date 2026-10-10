@@ -50,8 +50,8 @@ export function generateMeta({
       images: [
         {
           url: '/og-image.jpg',
-          width: 1200,
-          height: 630,
+          width: 1376,
+          height: 768,
           alt: fullTitle,
         },
       ],
@@ -60,7 +60,7 @@ export function generateMeta({
       card: 'summary_large_image',
       title: fullTitle,
       description,
-      images: ['/og-image.png'],
+      images: ['/og-image.jpg'],
     },
     robots: {
       index: true,
