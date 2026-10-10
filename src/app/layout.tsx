@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   description:
     'Platform micro-tools kalkulator berbahasa Indonesia. Hitung cicilan, HPP, deposito, margin, BEP, THR, dan puluhan kalkulator lainnya secara mudah dan cepat.',
-  metadataBase: new URL('https://kalkuloka.id'),
+  metadataBase: new URL('https://www.kalkuloka.id'),
   keywords: ['kalkulator', 'kalkuloka', 'hitung', 'keuangan', 'bisnis', 'umkm', 'cicilan', 'hpp'],
   authors: [{ name: 'Kalkuloka' }],
   openGraph: {

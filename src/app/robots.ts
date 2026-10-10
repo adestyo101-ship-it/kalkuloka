@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://kalkuloka.id/sitemap.xml',
-    host: 'https://kalkuloka.id',
+    sitemap: 'https://www.kalkuloka.id/sitemap.xml',
+    host: 'https://www.kalkuloka.id',
   };
 }

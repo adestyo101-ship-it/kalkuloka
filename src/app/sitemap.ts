@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { TOOLS, CATEGORIES } from '@/data/tools';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const BASE_URL = 'https://kalkuloka.id';
+  const BASE_URL = 'https://www.kalkuloka.id';
   const now = new Date();
 
   const staticPages: MetadataRoute.Sitemap = [

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-const BASE_URL = 'https://kalkuloka.id';
+const BASE_URL = 'https://www.kalkuloka.id';
 const SITE_NAME = 'Kalkuloka';
 const DEFAULT_DESCRIPTION =
   'Platform micro-tools kalkulator berbahasa Indonesia. Hitung cicilan, HPP, deposito, margin, BEP, THR, dan puluhan tools lainnya secara mudah dan cepat.';
