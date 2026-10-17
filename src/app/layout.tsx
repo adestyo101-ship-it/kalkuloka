@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   authors: [{ name: 'Kalkuloka' }],
   openGraph: {
+    url: '/',
     siteName: 'Kalkuloka',
     locale: 'id_ID',
     type: 'website',
